@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #1a1a1a 0%, #090909 55%, #000 100%);
+  font-family: "Cormorant Garamond", serif;
+  color: #f7f1e8;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 2;
+}
+
+.mist {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent 60%);
+  filter: blur(50px);
+  animation: drift 14s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.mist-2 {
+  animation-duration: 18s;
+  opacity: 0.5;
+}
+
+@keyframes drift {
+  from { transform: translate(-40px, -20px) scale(1); }
+  to { transform: translate(40px, 20px) scale(1.15); }
+}
+
+.intro-screen,
+.experience {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.gift-btn {
+  background: rgba(255, 214, 102, 0.08);
+  color: #f8e7b0;
+  border: 1px solid rgba(255, 214, 102, 0.35);
+  padding: 18px 34px;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(255, 214, 102, 0.08);
+  transition: all 0.3s ease;
+}
+
+.gift-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(255, 214, 102, 0.15);
+}
+
+.vine {
+  width: 0;
+  height: 2px;
+  margin: 0 auto 36px;
+  background: linear-gradient(90deg, #6b5d1e, #d9c56f, #6b5d1e);
+  box-shadow: 0 0 10px rgba(217, 197, 111, 0.4);
+}
+
+.vine.animate {
+  animation: growLine 2.2s ease forwards;
+}
+
+@keyframes growLine {
+  from { width: 0; opacity: 0; }
+  to { width: 320px; opacity: 1; }
+}
+
+.text-box {
+  min-height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.35;
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.4s ease;
+  text-shadow: 0 0 18px rgba(255,255,255,0.05);
+}
+
+.text-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
